@@ -3,7 +3,8 @@ import flet as ft
 
 def main(page: ft.Page):
     
-    page.vertical_alignment = ft.VerticalAlignment.CENTER
+    # page.vertical_alignment = ft.VerticalAlignment.CENTER
+    # page.horizontal_alignment = ft.MainAxisAlignment.CENTER
     page.padding = 0
     
     def btn_click(e):
@@ -19,8 +20,12 @@ def main(page: ft.Page):
     txt_name = ft.TextField(label="Введите ваше имя")
     txt_last_name = ft.TextField(label="Введите вашу фамилию")
     button = ft.ElevatedButton("Say hello!", on_click=btn_click)
-
-    page.add(txt_name, button)
+    con = ft.Column([
+        txt_name,
+        txt_last_name,
+        button,
+    ],alignment = ft.MainAxisAlignment.CENTER)
+    page.add(con)
 
 
 ft.app(main)
