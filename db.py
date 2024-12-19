@@ -34,3 +34,16 @@ def get_questions():
                 .select("*")
                 .execute())
     return response
+
+def update_rating(rating, login):
+    try:
+        response = ((supabase.table("players")
+                    .update({"rating": rating})
+                    .eq("login", login))
+                    .execute())
+        return response
+
+    except Exception as exception:
+        return exception
+
+update_rating(99, "yo")
