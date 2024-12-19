@@ -49,4 +49,3 @@ def update_rating(rating, login):
     except Exception as exception:
         return exception
 
-update_rating(99, "yo")

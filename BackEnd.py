@@ -6,6 +6,14 @@ import db
 
 #questions = list(db.get_questions())[0][1]
 
+def GetPlayer(login, password):
+    prec = list(db.get_player(login, password))[0][1]
+    if prec['data'] == []:
+        return False
+    else:
+        return prec['data']
+
+
 def AddPlayer(login, name, password):
     db.add_player(login, name, 0, password)
 
