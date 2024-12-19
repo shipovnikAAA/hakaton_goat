@@ -28,3 +28,9 @@ def get_ratings():
                 .order("rating", desc=True)
                 .execute())
     return response
+
+def get_questions():
+    response = (supabase.table("questions")
+                .select("*")
+                .execute())
+    return response
