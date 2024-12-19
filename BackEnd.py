@@ -4,16 +4,29 @@ import random
 
 import db
 
-questions = list(db.get_questions())[0][1]
+#questions = list(db.get_questions())[0][1]
 
 def AddPlayer(login, name, password):
     db.add_player(login, name, 0, password)
 
 
 def ChangeRaiting(login, raiting):
-    pass
+    db.update_rating(raiting, login)
 
 
+def GetQuestion(number):
+    questions = list(db.get_questions())[0][1]
+    return questions[number]
+
+
+def ChangeQuestion():
+    questions = list(db.get_questions())[0][1]
+    return questions[-1]
+
+
+def FiftyFifty(number):
+    questions = list(db.get_questions())[0][1]
+    return questions[number]['correct'], ((questions[number]['correct'] + 1) % 4) + 1
 
 
 def spectators(n = 1):
