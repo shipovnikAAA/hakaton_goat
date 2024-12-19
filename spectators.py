@@ -2,7 +2,8 @@ import time
 import random
 
 
-def spectators(n = 0):
+def spectators(n = 1):
+    n -= 1
     random.seed(time.time())
     correct = n
     variants = []
@@ -30,5 +31,4 @@ def spectators(n = 0):
             out[i] = ans[ind]
             ind += 1
     return out
-
 
